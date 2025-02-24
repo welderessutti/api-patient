@@ -1,10 +1,11 @@
 services:
   postgres:
-    image: postgres
+    image: postgres:latest
     container_name: db-postgres-api-patient
     ports:
       - "5432:5432"
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: patient
     healthcheck:
@@ -23,7 +24,6 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      PROFILE: "${PROFILE:-prd}"
       SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/patient"
       SPRING_DATASOURCE_USERNAME: "postgres"
       SPRING_DATASOURCE_PASSWORD: "postgres"
