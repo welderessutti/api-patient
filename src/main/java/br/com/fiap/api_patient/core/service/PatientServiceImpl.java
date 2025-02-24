@@ -6,14 +6,13 @@ import br.com.fiap.api_patient.core.exception.PatientAlreadyExistsException;
 import br.com.fiap.api_patient.core.exception.PatientNotFoundException;
 import br.com.fiap.api_patient.core.mapper.PatientDtoDomainMapper;
 import br.com.fiap.api_patient.core.port.in.PatientPortIn;
-import br.com.fiap.api_patient.core.port.out.PatientEventPortOut;
 import br.com.fiap.api_patient.core.port.out.PatientPortOut;
 import br.com.fiap.api_patient.core.updater.PatientUpdater;
 import br.com.fiap.api_patient.framework.dto.request.create.PatientCreateRequestDto;
 import br.com.fiap.api_patient.framework.dto.request.update.PatientUpdateRequestDto;
 import br.com.fiap.api_patient.framework.dto.response.AllPatientsResponseDto;
-import br.com.fiap.api_patient.framework.dto.response.PatientResponseDto;
 import br.com.fiap.api_patient.framework.dto.response.CreatePatientResponseDto;
+import br.com.fiap.api_patient.framework.dto.response.PatientResponseDto;
 
 import java.util.Optional;
 
@@ -23,7 +22,6 @@ public class PatientServiceImpl implements PatientPortIn {
 
     private final AddressService addressService;
     private final PatientPortOut patientPortOut;
-    private final PatientEventPortOut patientEventPortOut;
     private static final String EXISTS_WITH_CPF = "Patient already exists with CPF: ";
     private static final String EXISTS_WITH_EMAIL = "Patient already exists with e-mail: ";
     private static final String NOT_FOUND_WITH_ID = "Patient not found with id: ";
@@ -31,12 +29,10 @@ public class PatientServiceImpl implements PatientPortIn {
 
     public PatientServiceImpl(
             AddressService addressService,
-            PatientPortOut patientPortOut,
-            PatientEventPortOut patientEventPortOut
+            PatientPortOut patientPortOut
     ) {
         this.addressService = addressService;
         this.patientPortOut = patientPortOut;
-        this.patientEventPortOut = patientEventPortOut;
     }
 
     @Override
@@ -45,9 +41,7 @@ public class PatientServiceImpl implements PatientPortIn {
         validatePatientExistence(patient);
         Address returnedAddress = getAddressData(patient);
         patient.setAddress(returnedAddress);
-        Patient createdPatient = patientPortOut.createPatient(patient);
-        patientEventPortOut.sendPatientCreatedEvent(createdPatient);
-        return PatientDtoDomainMapper.toCreatePatientResponseDto(createdPatient);
+        return PatientDtoDomainMapper.toCreatePatientResponseDto(patientPortOut.createPatient(patient));
     }
 
     @Override
