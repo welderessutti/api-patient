@@ -13,8 +13,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - hackathon-fiap
 
   app-api-patient:
     build: .
@@ -29,9 +27,3 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://db-postgres-api-patient:5432/patient"
       SPRING_DATASOURCE_USERNAME: "postgres"
       SPRING_DATASOURCE_PASSWORD: "postgres"
-    networks:
-      - hackathon-fiap
-
-networks:
-  hackathon-fiap:
-    external: true
