@@ -1,5 +1,5 @@
 services:
-  postgres:
+  db-postgres-api-patient:
     image: postgres:latest
     container_name: db-postgres-api-patient
     ports:
@@ -13,17 +13,25 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - hackathon-fiap
 
-  app:
+  app-api-patient:
     build: .
     image: welderessutti/api-patient:latest
     container_name: app-api-patient
     ports:
       - "8080:8080"
     depends_on:
-      postgres:
+      db-postgres-api-patient:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/patient"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://db-postgres-api-patient:5432/patient"
       SPRING_DATASOURCE_USERNAME: "postgres"
       SPRING_DATASOURCE_PASSWORD: "postgres"
+    networks:
+      - hackathon-fiap
+
+networks:
+  hackathon-fiap:
+    external: true
