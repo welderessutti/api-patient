@@ -1,19 +1,19 @@
 # Hackathon Fiap - Fase 5
 
-## Pós Tech - Arquitetura e Desenvolvimento Java - Fiap - 2024/25
-
-## Glicontrol - Sistema de gerenciamento de resultado de exame e agendamento
-
-**Microsserviço desenvolvido por:** Welder Ressutti
+# Pós Tech - Arquitetura e Desenvolvimento Java - Fiap - 2024/25
 
 - **Grupo 11:**
-    - Pedro Ono - RM 354950
-    - Elton Xavier Souza - RM 354254
-    - Welder Ressutti - RM 99070
+    - **[Pedro Ono](https://github.com/pedr0no) - RM 354950**
+    - **[Elton Xavier Souza](https://github.com/eltonxs) - RM 354254**
+    - **[Welder Ressutti](https://github.com/welderessutti) - RM 99070**
+
+# Glicare - Sistema de gerenciamento de resultado de exame e agendamento
 
 ## Microsserviço de Gerenciamento de Pacientes
 
-Sua responsabilidade dentro do sistema **Glicontrol**, é de realizar o gerenciamento de pacientes, realizando operações
+**Microsserviço desenvolvido por:** Welder Ressutti
+
+Sua responsabilidade dentro do sistema **Glicare**, é de realizar o gerenciamento de pacientes, realizando operações
 **CRUD**.
 
 Foi utilizado banco de dados relacional **PostgreSQL** para persistência dos dados, integrado com gerenciamento de
@@ -25,9 +25,9 @@ Handler**, que retorna uma classe de erro contendo **timestamp**, **status code*
 Possui integração por comunicação síncrona utilizando **OpenFeign** com a API **ViaCEP** para obter o endereço completo
 do paciente.
 
-## Funcionalidades e Endpoints
+### Funcionalidades e Endpoints
 
-### Criação de Paciente (POST)
+#### Criação de Paciente (POST)
 
 **Endpoint:** ``/api/patient``
 
@@ -48,7 +48,7 @@ preenchidas automaticamente através da integração com a API **ViaCEP**.
 
 O sistema **impede** o cadastro de paciente com **CPF** e/ou **e-mail** iguais.
 
-### Atualização de Paciente (PUT)
+#### Atualização de Paciente (PUT)
 
 **Endpoint:** ``/api/patient/{patientId}``
 
@@ -56,13 +56,13 @@ Todo o padrão de validação, limpeza e consistência de dados do processo de c
 todos os campos são **opcionais**, pode ser enviado apenas **um**, **alguns** ou **todos** os campos para a atualização
 do paciente.
 
-### Leitura de Paciente (GET)
+#### Leitura de Paciente (GET)
 
 **Endpoint:** ``/api/patient/{patientId}`` ``/api/patient?email=`` ``/api/patient``
 
 Pode ser obtido o paciente pelo seu **id** ou **e-mail**. Também é possível obter **todos** os pacientes de uma vez.
 
-### Deleção de Paciente (DELETE)
+#### Deleção de Paciente (DELETE)
 
 **Endpoint:** ``/api/patient/{patientId}``
 
@@ -70,7 +70,19 @@ Para deletar um paciente basta passar seu **id** no endpoint.
 
 *Para mais informações sobre a API, como, request, response e status code, consultar a documentação Swagger.*
 
-## Arquitetura
+## Tecnologias
+
+- **Spring Web** – Base para a construção das APIs RESTful do sistema.
+- **Spring Data JPA** – Gerenciamento da persistência de dados e integração com o banco de dados.
+- **PostgreSQL** – Banco de dados relacional utilizado para armazenar as informações do sistema.
+- **Spring Cloud** – Conjunto de ferramentas para facilitar a arquitetura baseada em microsserviços.
+- **OpenFeign** – Cliente HTTP declarativo para facilitar a comunicação síncrona entre os microsserviços.
+- **Flyway** – Controle de versionamento do banco de dados, garantindo migrações seguras.
+- **Spring Validation** – Validação de dados recebidos nas requisições das APIs.
+- **Swagger** – Documentação interativa das APIs para facilitar testes e integração.
+- **Lombok** – Redução de boilerplate no código, simplificando a criação de classes Java.
+
+### Arquitetura
 
 A arquitetura hexagonal consiste na ideia de utilizar portas e adaptadores para realizar a integração entre a camada
 externa e interna, isolando o core da aplicação para que alterações externas não interfiram nas regras de negócio e
@@ -83,16 +95,16 @@ A arquitetura desta aplicação foi desenvolvida da seguinte forma:
 
 ![Aquitetura](images/architecture.jpg)
 
-## Executando a aplicação (isoladamente)
+### Executando a aplicação (isoladamente)
 
-### Pré-requisitos
+#### Pré-requisitos
 
 - **Git** (caso queira clonar o repositório, mas você pode apenas baixá-lo):
     - [Git](https://git-scm.com/downloads)
 - **Docker Desktop** (para executar a aplicação através de containers):
     - [Docker](https://www.docker.com/products/docker-desktop/)
 
-### Passo 1: Clonar ou baixar o repositório
+#### Passo 1: Clonar ou baixar o repositório
 
 Para clonar o repositório, use o comando:
 
@@ -103,7 +115,7 @@ git clone https://github.com/welderessutti/api-patient
 Caso não queira clonar o repositório, você pode baixá-lo
 em [GitHub](https://github.com/welderessutti/api-patient).
 
-### Passo 2: Executar a aplicação com Docker
+#### Passo 2: Executar a aplicação com Docker
 
 No terminal, dentro do diretório raíz do projeto (local onde se encontra o arquivo **pom.xml** da aplicação), execute o
 comando abaixo para subir o container da aplicação e do banco de dados **PostgreSQL**:
@@ -125,7 +137,7 @@ e suas tabelas automaticamente utilizando o **Flyway**, e estará disponível pa
 http://localhost:8080/api/patient
 ```
 
-## Documentação da API (Swagger UI)
+### Documentação da API (Swagger UI)
 
 A documentação da **API** pode ser acessada via **Swagger UI**. Após executar a aplicação, acesse:
 
