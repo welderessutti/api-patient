@@ -7,9 +7,9 @@
     - **[Elton Xavier Souza](https://github.com/eltonxs) - RM 354254**
     - **[Welder Ressutti](https://github.com/welderessutti) - RM 99070**
 
-# Glicare - Sistema de gerenciamento de resultado de exame e agendamento
+# Glicare - Sistema de Gerenciamento de Resultado de Exame e Agendamento
 
-## Microsserviço de Gerenciamento de Pacientes
+## Microsserviço de Gerenciamento de Paciente
 
 **Microsserviço desenvolvido por:** Welder Ressutti
 
