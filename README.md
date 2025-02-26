@@ -70,7 +70,7 @@ Para deletar um paciente basta passar seu **id** no endpoint.
 
 *Para mais informações sobre a API, como, request, response e status code, consultar a documentação Swagger.*
 
-## Tecnologias
+### Tecnologias
 
 - **Spring Web** – Base para a construção das APIs RESTful do sistema.
 - **Spring Data JPA** – Gerenciamento da persistência de dados e integração com o banco de dados.
