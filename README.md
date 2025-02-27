@@ -7,23 +7,24 @@
     - **[Elton Xavier Souza](https://github.com/eltonxs) - RM 354254**
     - **[Welder Ressutti](https://github.com/welderessutti) - RM 354557**
 
-# Glicare - Sistema de Gerenciamento de Resultado de Exame e Agendamento
+# Glicare - Sistema de Gerenciamento de Resultado de Exame, Diagnóstico e Agendamento
 
 ## Microsserviço de Gerenciamento de Paciente
 
-**Microsserviço desenvolvido por:** Welder Ressutti
+**Desenvolvido por: [Welder Ressutti](https://github.com/welderessutti)**
 
-Sua responsabilidade dentro do sistema **Glicare**, é de realizar o gerenciamento de pacientes, realizando operações
-**CRUD**.
+O microsserviço de gerenciamento de pacientes no **Glicare** é responsável por executar operações **CRUD**, garantindo a
+administração eficiente dos dados dos pacientes.
 
-Foi utilizado banco de dados relacional **PostgreSQL** para persistência dos dados, integrado com gerenciamento de
-migração de schemas usando **Flyway**.
+Para completar os cadastros, o microsserviço integra-se à API **ViaCEP** por meio de comunicação síncrona utilizando
+**OpenFeign**, permitindo a obtenção automática do endereço completo do paciente.
 
-Foram criadas exceções personalizas que são tratadas globalmente pelo **Rest Controller Advice** e **Exception
-Handler**, que retorna uma classe de erro contendo **timestamp**, **status code**, **error**, **message** e **path**.
+A persistência dos dados é realizada em um banco **PostgreSQL**, com gerenciamento de migração de schemas via
+**Flyway**.
 
-Possui integração por comunicação síncrona utilizando **OpenFeign** com a API **ViaCEP** para obter o endereço completo
-do paciente.
+Para garantir respostas padronizadas e um tratamento adequado de erros, foram implementadas **exceções personalizadas**,
+gerenciadas globalmente pelo **Rest Controller Advice** e **Exception Handler**, que retornam informações detalhadas,
+incluindo **timestamp**, **status code**, **error**, **message** e **path**.
 
 ### Funcionalidades e Endpoints
 
