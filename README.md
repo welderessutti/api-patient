@@ -132,7 +132,7 @@ encontre a imagem, ele realizará a **build** da aplicação **(.jar)**, criará
 automaticamente.
 
 Antes do container da aplicação subir, ele aguardará o container do banco de dados **PostgreSQL** estar pronto
-utilizando um **healthcheck**, quando pronto, o container da aplicação inicia, e realizará a migração do banco de dados
+utilizando um **healthcheck**, quando pronto, o container da aplicação inicia, realiza a migração do banco de dados
 e suas tabelas automaticamente utilizando o **Flyway**, e estará disponível para acesso em:
 
 ```
