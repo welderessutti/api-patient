@@ -74,6 +74,7 @@ Para deletar um paciente basta passar seu **id** no endpoint.
 
 ### Tecnologias
 
+- **Java 17** – Linguagem de programação utilizada no desenvolvimento do sistema.
 - **Spring Web** – Base para a construção das APIs RESTful do sistema.
 - **Spring Data JPA** – Gerenciamento da persistência de dados e integração com o banco de dados.
 - **PostgreSQL** – Banco de dados relacional utilizado para armazenar as informações do sistema.
@@ -83,6 +84,9 @@ Para deletar um paciente basta passar seu **id** no endpoint.
 - **Spring Validation** – Validação de dados recebidos nas requisições das APIs.
 - **Swagger** – Documentação interativa das APIs para facilitar testes e integração.
 - **Lombok** – Redução de boilerplate no código, simplificando a criação de classes Java.
+- **API ViaCEP** – Serviço utilizado para buscar informações de endereços a partir do CEP, garantindo maior precisão e
+  automação no cadastro de pacientes.
+- **Docker** – Containerização dos microsserviços para facilitar o deploy e a escalabilidade.
 
 ### Arquitetura
 
