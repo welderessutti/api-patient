@@ -14,8 +14,8 @@
 
 **Desenvolvido por: [Welder Ressutti](https://github.com/welderessutti)**
 
-O microsserviço de gerenciamento de pacientes no **Glicare** é responsável por executar operações **CRUD**, garantindo a
-administração eficiente dos dados dos pacientes.
+O microsserviço de gerenciamento de pacientes no **[Glicare](https://github.com/welderessutti/hackathon-fiap-glicare)**
+é responsável por executar operações **CRUD**, garantindo a administração eficiente dos dados dos pacientes.
 
 Para completar os cadastros, o microsserviço integra-se à API **ViaCEP** por meio de comunicação síncrona utilizando
 **OpenFeign**, permitindo a obtenção automática do endereço completo do paciente.
