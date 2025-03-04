@@ -154,3 +154,12 @@ http://localhost:8080/api/swagger-ui/index.html
 Lá você encontrará detalhes sobre todos os endpoints disponíveis, parâmetros de requisição e resposta.
 
 ![Swagger](images/swagger.png)
+
+## Coleções de API (Postman/Insomnia)
+
+As coleções de requisições do Postman e Insomnia estão disponíveis no diretório:
+
+`api-requests/`
+
+Se você deseja testar os endpoints da API, basta importar os arquivos de coleção no Postman ou Insomnia e executar as
+requisições conforme necessário.
